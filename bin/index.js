@@ -79,14 +79,6 @@ require("yargs")
         dropletUtils.start(argv.size, argv.nowait, argv.image, argv.name)
     })
     .command("list", "List all droplets", (yargs) => {
-        yargs
-        .positional("port", {
-            describe: "port to bind on",
-            default: 5000
-        })
-        .option("funtime", {
-            alias: "f"
-        })
     }, (argv) => {
         if (argv.verbose) {
             console.info(`start server on :${argv.port}`)
