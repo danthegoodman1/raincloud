@@ -22,7 +22,7 @@ const dropletSizes = [
   ]
 
 require("yargs")
-    .command("config [command]", "start the server", (yargs) => {
+    .command("config [command]", "configure API key", (yargs) => {
         yargs
         .command("set [apiKey]", "set api key", (yargs) => {
             yargs.positional("apiKey", {
@@ -58,7 +58,7 @@ require("yargs")
     }, (argv) => {
         console.log(argv)
     })
-    .command("start", "start the server", (yargs) => {
+    .command("start", "start a new droplet", (yargs) => {
         yargs
         .option("size", {
             describe: "size of VM - Default: s-1vcpu-1gb",
