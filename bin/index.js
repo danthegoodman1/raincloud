@@ -119,4 +119,5 @@ require("yargs")
     .option("verbose", {
         alias: "v",
     })
+    .demandCommand(1, "Use one of the above commands to continue!")
     .argv
