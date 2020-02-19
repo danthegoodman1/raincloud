@@ -91,6 +91,13 @@ require("yargs")
             console.error("Error generating droplet table")
         })
     })
+    .command("listsizes", "List all droplet sizes", (yargs) => {
+    }, (argv) => {
+        if (argv.verbose) {
+            console.info(`start server on :${argv.port}`)
+        }
+        console.log(dropletSizes.join(",\n").replace(/, ([^,]*)$/, '\nsizes$1'))
+    })
     .command("evaporate [dropletId]", "kill the droplet", (yargs) => {
         yargs
         .positional("dropletId", {
