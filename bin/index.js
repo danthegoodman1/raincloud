@@ -66,7 +66,7 @@ require("yargs")
         })
         .option("image", {
             default: 53893572,
-            description: "ID of image - Default: 53893572"
+            description: "ID of image - Default: 53893572 (Ubuntu 18.04 LTS)"
         })
         .option("name", {
             default: uniqueNamesGenerator({ dictionaries: [adjectives, colors, animals], separator: "-" }),
