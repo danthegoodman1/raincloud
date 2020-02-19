@@ -46,9 +46,6 @@ require("yargs")
         .command("purge", "delete api key", (yargs) => {
         })
     }, (argv) => {
-        if (argv.verbose) {
-            console.info(`start server on :${argv.port}`)
-        }
         console.log(argv)
     })
     .command("start [size]", "start the server", (yargs) => {
@@ -73,15 +70,17 @@ require("yargs")
             alias: "f"
         })
     }, (argv) => {
-        if (argv.verbose) {
-            console.info(`start server on :${argv.port}`)
+        if (!configUtils.checkConfig()){
+            console.log("Missing API key!\nRun: 'raindrop config set [apiKey]' to get started!")
+            return
         }
         dropletUtils.start(argv.size, argv.nowait, argv.image, argv.name)
     })
     .command("list", "List all droplets", (yargs) => {
     }, (argv) => {
-        if (argv.verbose) {
-            console.info(`start server on :${argv.port}`)
+        if (!configUtils.checkConfig()){
+            console.log("Missing API key!\nRun: 'raindrop config set [apiKey]' to get started!")
+            return
         }
         dropletUtils.listDroplets()
         .then((dropletTable) => {
@@ -93,9 +92,6 @@ require("yargs")
     })
     .command("listsizes", "List all droplet sizes", (yargs) => {
     }, (argv) => {
-        if (argv.verbose) {
-            console.info(`start server on :${argv.port}`)
-        }
         console.log(dropletSizes.join(",\n").replace(/, ([^,]*)$/, '\nsizes$1'))
     })
     .command("evaporate [dropletId]", "kill the droplet", (yargs) => {
@@ -104,8 +100,9 @@ require("yargs")
             describe: "droplet id",
         })
     }, (argv) => {
-        if (argv.verbose) {
-            console.info(`start server on :${argv.port}`)
+        if (!configUtils.checkConfig()){
+            console.log("Missing API key!\nRun: 'raindrop config set [apiKey]' to get started!")
+            return
         }
         dropletUtils.evaporate(argv.dropletId)
         .then(() => {
@@ -116,8 +113,8 @@ require("yargs")
             console.error(error.message)
         })
     })
-    .option("verbose", {
-        alias: "v",
-    })
+    // .option("verbose", {
+    //     alias: "v",
+    // })
     .demandCommand(1, "Use one of the above commands to continue!")
     .argv
