@@ -1,6 +1,6 @@
 {
   "name": "raincloud",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "DigitalOcean Droplet CLI",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,13 @@
     "table": "^5.4.6",
     "unique-names-generator": "^4.2.0",
     "yargs": "^15.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danthegoodman1/raincloud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danthegoodman1/raincloud/issues"
+  },
+  "homepage": "https://github.com/danthegoodman1/raincloud#readme"
 }
