@@ -70,7 +70,7 @@ module.exports.listDroplets = () => {
             const api = new Do(apiKey)
             api.dropletsGetAll()
             .then(async (res) => {
-                const dropletList = [["Name", "ID", "Size", "CPUs", "Disk", "Memory (MB)", "IP (v4)"]]
+                const dropletList = [["Name", "ID", "Size", "vCPUs", "Disk (GB)", "Memory (MB)", "IP (v4)"]]
                 for (const ele of res.body.droplets) {
                     dropletList.push([
                         ele.name,
