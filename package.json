@@ -1,0 +1,28 @@
+{
+  "name": "raincloud",
+  "version": "1.0.0",
+  "description": "DigitalOcean Droplet CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Goodman",
+  "license": "ISC",
+  "keywords": [
+    "digital",
+    "ocean",
+    "digitalocean",
+    "cli",
+    "droplet"
+  ],
+  "bin": "bin/index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "dependencies": {
+    "do-wrapper": "^3.25.4",
+    "table": "^5.4.6",
+    "unique-names-generator": "^4.2.0",
+    "yargs": "^15.1.0"
+  }
+}
