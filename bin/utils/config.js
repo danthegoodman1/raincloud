@@ -30,7 +30,7 @@ module.exports.setAPIKey = (apiKey) => {
 }
 
 module.exports.purgeAPIKey = () => {
-    return new Promise((resovle, reject) => {
+    return new Promise((resolve, reject) => {
         try {
             fs.unlinkSync(path.join(__dirname, "./c.json"))
             resolve()

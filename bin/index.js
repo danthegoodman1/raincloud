@@ -44,13 +44,23 @@ require("yargs")
             })
         })
         .command("purge", "delete api key", (yargs) => {
+        }, (argv) => {
+            configUtils.purgeAPIKey()
+            .then(() => {
+                console.log("Purged API Key")
+            })
+            .catch((error) => {
+                console.error("Error purging API Key:")
+                console.error(error)
+            })
         })
+        .demandCommand(1, "")
     }, (argv) => {
         console.log(argv)
     })
-    .command("start [size]", "start the server", (yargs) => {
+    .command("start", "start the server", (yargs) => {
         yargs
-        .positional("size", {
+        .option("size", {
             describe: "size of VM - Default: s-1vcpu-1gb",
             default: "s-1vcpu-1gb"
         })
@@ -99,6 +109,7 @@ require("yargs")
         .positional("dropletId", {
             describe: "droplet id",
         })
+        .demandCommand(1, "")
     }, (argv) => {
         if (!configUtils.checkConfig()){
             console.log("Missing API key!\nRun: 'raindrop config set [apiKey]' to get started!")
