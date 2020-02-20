@@ -1,6 +1,6 @@
 {
   "name": "raincloud",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "DigitalOcean Droplet CLI",
   "main": "index.js",
   "scripts": {

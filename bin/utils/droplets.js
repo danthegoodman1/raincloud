@@ -28,7 +28,7 @@ module.exports.start = (dropletSize, nowait, image, name) => {
                 ]
             })
             .then((res) => {
-                console.log(res)
+                console.log(`Started droplet with id: ${res.body.droplet.id} and name: ${name}`)
                 resolve()
             })
             .catch(err => {
