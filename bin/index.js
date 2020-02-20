@@ -109,7 +109,6 @@ require("yargs")
         .positional("dropletId", {
             describe: "droplet id",
         })
-        .demandCommand(1, "")
     }, (argv) => {
         if (!configUtils.checkConfig()){
             console.log("Missing API key!\nRun: 'raindrop config set [apiKey]' to get started!")
@@ -124,6 +123,7 @@ require("yargs")
             console.error(error.message)
         })
     })
+    .demandCommand(1, "")
     // .option("verbose", {
     //     alias: "v",
     // })
