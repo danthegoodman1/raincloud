@@ -116,7 +116,7 @@ require("yargs")
         }
         dropletUtils.evaporate(argv.dropletId)
         .then(() => {
-            console.log(`Deleted droplet ${argv.dropletId}`)
+            console.log(`Evaporating droplet ${argv.dropletId}...`)
         })
         .catch((error) => {
             console.error(`Failed to delete droplet ${argv.dropletId}:`)
